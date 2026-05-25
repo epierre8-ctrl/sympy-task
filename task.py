@@ -15,7 +15,13 @@ def calcola_derivata(espressione: str, variabile: str) -> sympy.Expr:
 
 def calcola_integrale_definito(espressione: str, variabile: str, estremo_inf: float, estremo_sup: float) -> sympy.Expr:
     """Sub-task 2: Calcolare un Integrale Definito."""
-    pass
+
+    var = sympy.Symbol(variabile)
+    expr = sympy.sympify(espressione)
+    risultato = sympy.integrate(expr, (var, estremo_inf, estremo_sup))
+
+    return risultato
+
 
 def calcola_limite(espressione: str, variabile: str, punto: str) -> sympy.Expr:
     """Sub-task 3: Calcolare un Limite."""
