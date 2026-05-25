@@ -37,7 +37,13 @@ def calcola_limite(espressione: str, variabile: str, punto: str) -> sympy.Expr:
 
 def calcola_polinomio_taylor(espressione: str, variabile: str, punto: float, ordine: int) -> sympy.Expr:
     """Sub-task 4: Calcolare una Serie di Taylor."""
-    pass
+
+    var = sympy.Symbol(variabile)
+    expr = sympy.sympify(espressione)
+
+    risultato = sympy.series(expr, var, punto, ordine + 1).removeO()
+
+    return risultato
 
 def risolvi_sistema_lineare(eq1: str, eq2: str, var1: str, var2: str) -> Dict[sympy.Symbol, sympy.Expr]:
     """Sub-task 5: Risolvere un Sistema Lineare."""
